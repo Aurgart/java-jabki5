@@ -50,6 +50,13 @@ public class Order {
     }
 
     /**
+     * Возвращает сумму
+     * @return
+     */
+    public int getTotalPrice(){
+        return this.totalPrice;
+    }
+    /**
      * печатаем инфо по заказу.
      */
     public void getOrderInfo() {

@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ class MainTest {
         Wallet lopatnik = new Wallet("Bogach", 1000);
         System.out.println("Хозяин лопатника: " + lopatnik.getOwner() + " на кармане: " + lopatnik.getMoney());
         lopatnik.setMoney(-10);
+        Assertions.assertEquals(1000, lopatnik.getMoney());
         System.out.println("Хозяин лопатника: " + lopatnik.getOwner() + " на кармане: " + lopatnik.getMoney());
         // подкинем бабла
         lopatnik.setMoney(lopatnik.getMoney() + 1500);
@@ -40,10 +42,13 @@ class MainTest {
         telik.setCurrentChannel(50);
         System.out.println("Канал " + telik.getCurrentChannel() + " громкость " + telik.getVolume());
         telik.nextChannel();
+        Assertions.assertEquals(1, telik.getCurrentChannel());
         System.out.println("Канал " + telik.getCurrentChannel() + " громкость " + telik.getVolume());
         telik.setVolume(120);
+        Assertions.assertEquals(10, telik.getVolume());
         System.out.println("Канал " + telik.getCurrentChannel() + " громкость " + telik.getVolume());
         telik.setVolume(80);
+        Assertions.assertEquals(80, telik.getVolume());
         System.out.println("Канал " + telik.getCurrentChannel() + " громкость " + telik.getVolume());
     }
 
@@ -70,6 +75,6 @@ class MainTest {
         Item govnodav = new Item("Говнодавы", -1000);
         zakaz2.addItem(govnodav);
         zakaz2.getOrderInfo();
-
+        Assertions.assertEquals(1500, zakaz2.getTotalPrice());
     }
 }
