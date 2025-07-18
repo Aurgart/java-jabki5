@@ -4,12 +4,9 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class MainTest {
 
-    @Test
-    void WalletTest() {
+    void walletTest() {
         Wallet lopatnik = new Wallet("Bogach", 1000);
         System.out.println("Хозяин лопатника: " + lopatnik.getOwner() + " на кармане: " + lopatnik.getMoney());
         lopatnik.setMoney(-10);
@@ -26,8 +23,7 @@ class MainTest {
         System.out.println("Хозяин лопатника: " + lopatnik.getOwner() + " на кармане: " + lopatnik.getMoney());
     }
 
-    @Test
-    void GameTest() {
+    void gameTest() {
         Game loservile = new Game();
         System.out.println("Попытка 1: число " + 42 + " .Ответ:" + loservile.checkGuess(42));
         System.out.println("Попытка 2: число " + 19 + " .Ответ:" + loservile.checkGuess(19));
@@ -36,7 +32,7 @@ class MainTest {
     }
 
     @Test
-    void TvTest() {
+    void tvTest() {
         Tv telik = new Tv();
         System.out.println("Канал " + telik.getCurrentChannel() + " громкость " + telik.getVolume());
         telik.setCurrentChannel(50);
@@ -53,7 +49,7 @@ class MainTest {
     }
 
     @Test
-    void OrderTest() {
+    void orderTest() {
         Order zakaz1 = new Order();
         // Шузы
         Item tapok = new Item("Тапок", 100);

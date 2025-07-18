@@ -1,27 +1,27 @@
+/**
+ * класс телек, с возможностью управления.
+ */
 public class Tv {
-    /*
-    3) Класс «Телевизор»:
-           Поля:
-                currentChannel (private),
-                volume (private).
-           Геттеры и сеттеры:
-                volume может быть от 0 до 100.currentChannel от 1 до 50.
-           Метод nextChannel() увеличивает канал на 1.
-    */
+    /**
+     * текущий канал
+     */
     private int currentChannel;
+    /**
+     * громкость
+     */
     private int volume;
 
     /**
      * Создаем телик, канал 1 грмокость 10
      */
-    Tv() {
+    public Tv() {
         this.currentChannel = 1;
         this.volume = 10;
     }
 
     /**
      * текущий канал
-     * @return
+     * @return канал
      */
     public int getCurrentChannel() {
         return this.currentChannel;
@@ -29,7 +29,7 @@ public class Tv {
 
     /**
      * громкость
-     * @return
+     * @return громкость
      */
     public int getVolume() {
         return this.volume;
@@ -37,7 +37,7 @@ public class Tv {
 
     /**
      * установить канал
-     * @param currentChannel
+     * @param currentChannel - какой канал установить
      */
     public void setCurrentChannel(int currentChannel) {
         if (currentChannel >= 1 && currentChannel <= 50) {
@@ -49,7 +49,7 @@ public class Tv {
 
     /**
      * установить громкость
-     * @param volume
+     * @param volume - новая громкость
      */
     public void setVolume(int volume) {
         if (volume >= 0 && volume <= 100) {

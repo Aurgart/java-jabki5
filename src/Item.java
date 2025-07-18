@@ -1,13 +1,23 @@
+/**
+ * класс товар
+ */
 public class Item {
+    /**
+     * цена товара
+     */
     private int price;
+    /**
+     * наименование товара
+     */
     private String name;
 
     /**
      * создаем товар. сумма должна быть больше 0
-     * @param name
-     * @param price
+     *
+     * @param name  имя товара
+     * @param price цена товар
      */
-    Item(String name, int price) {
+    public Item(String name, int price) {
         if (price > 0) {
             this.price = price;
             this.name = name;
@@ -16,7 +26,8 @@ public class Item {
 
     /**
      * имя товара
-     * @return
+     *
+     * @return наименование товар
      */
     public String getItemName() {
         return this.name;
@@ -24,7 +35,8 @@ public class Item {
 
     /**
      * цена товара.
-     * @return
+     *
+     * @return цену товара
      */
     public int getItemPrice() {
         return this.price;

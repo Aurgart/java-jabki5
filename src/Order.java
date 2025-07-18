@@ -2,45 +2,53 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Класс заказ
+ */
 public class Order {
-    /*
-      4) Система заказа:
-         Создайте класс Order с полями:
-           orderId (read-only, генерируется автоматически).
-           items (список товаров, private).
-           totalPrice (private, вычисляется при добавлении товара).
-         Добавьте методы для добавления товара и получения информации о заказе.
-     */
     // Загуглил что так безопаснее с точки зрения многопоточности)
+    /**
+     * счетчик для получения ид
+     */
     private static final AtomicInteger count = new AtomicInteger();
 
+    /**
+     * ид заказа его идентификатор
+     */
     private int orderId;
+    /**
+     * общая сумма заказ
+     */
     private int totalPrice = 0;
-    private List<Item> items;
+    /**
+     * список товаров, (класс Item)
+     */
+    private List<Item> items = new ArrayList<>();
 
     /**
      * пустой заказ.
      */
-    Order() {
-        this.items = new ArrayList<>();
+    public Order() {
         this.orderId = count.incrementAndGet();
     }
 
     /**
      * заказ с товарами
+     *
      * @param items
      */
-    Order(List<Item> items) {
+    public Order(List<Item> items) {
         this.orderId = count.incrementAndGet();
         this.items = items;
-        for (Item goods : items) {
-            this.totalPrice += goods.getItemPrice();
+        for (Item product : items) {
+            this.totalPrice += product.getItemPrice();
         }
     }
 
     /**
      * добавляем товар
-     * @param product
+     *
+     * @param product - товар, экземпляр класса Item
      */
     public void addItem(Item product) {
         if (product.getItemName() != null) {
@@ -51,11 +59,13 @@ public class Order {
 
     /**
      * Возвращает сумму
-     * @return
+     *
+     * @return - общая сумма по заказу
      */
-    public int getTotalPrice(){
+    public int getTotalPrice() {
         return this.totalPrice;
     }
+
     /**
      * печатаем инфо по заказу.
      */

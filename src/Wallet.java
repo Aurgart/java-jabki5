@@ -1,17 +1,16 @@
-import java.sql.Struct;
-
+/**
+ * Класс «Кошелек»: для хранения суммы денег у человека
+ *
+ * @author ilemeshev
+ */
 public class Wallet {
-    /*
-    Класс «Кошелек»:
-           Поля:
-                owner (private),
-                money (private).
-           Конструктор с параметрами owner, money.
-           Геттеры и сеттеры с валидацией:
-                money не может быть отрицательным.
-                Метод spend(int amount), уменьшающий money.
+    /**
+     * владелец
      */
     private String owner;
+    /**
+     * деньги у владельца
+     */
     private int money;
 
     /**
@@ -20,7 +19,7 @@ public class Wallet {
      * @param owner
      * @param money
      */
-    Wallet(String owner, int money) {
+    public Wallet(String owner, int money) {
         this.owner = owner;
         if (money > 0) {
             this.money = money;
@@ -32,7 +31,7 @@ public class Wallet {
     /**
      * Узнать кто у нас богатый.
      *
-     * @return
+     * @return имя владельца
      */
     public String getOwner() {
         return this.owner;
@@ -41,7 +40,7 @@ public class Wallet {
     /**
      * Получить сумму на кармане
      *
-     * @return
+     * @return возвращает деньги
      */
     public int getMoney() {
         return this.money;
@@ -50,7 +49,7 @@ public class Wallet {
     /**
      * установить богатея
      *
-     * @param owner
+     * @param owner - кто владелец кошелька
      */
     public void setOwner(String owner) {
         this.owner = owner;
@@ -59,7 +58,7 @@ public class Wallet {
     /**
      * Установить бабло
      *
-     * @param money
+     * @param money - сумма на кармане.
      */
     public void setMoney(int money) {
         if (money > 0) {
@@ -70,14 +69,18 @@ public class Wallet {
     }
 
     /**
-     * Потратится
+     * Потратиться
      *
      * @param summ
-     * @return
+     * @return - скока есть.
      */
     public int spendMoney(int summ) {
-        if (this.money - summ > 0) {
-            this.money = this.money - summ;
+        if (summ < 0) {
+            System.out.println("Нельзя потратить отрицательную сумму.");
+            return this.money;
+        }
+        if (this.money > summ) {
+            this.money -= summ;
         } else {
             System.out.println("У тебя стока нету!");
         }
